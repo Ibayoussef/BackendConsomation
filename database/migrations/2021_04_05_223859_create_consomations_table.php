@@ -18,10 +18,10 @@ class CreateConsomationsTable extends Migration
             $table->id();
             $table->string('mois');
             $table->integer('annee');
-            $table->integer('consomation');
-            $table->integer('prixHT');
-            $table->integer('TVA');
-            $table->integer('prixTTC');
+            $table->float('consomation');
+            $table->float('prixHT');
+            $table->float('TVA');
+            $table->float('prixTTC');
             $table->boolean('status');
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->timestamps();
