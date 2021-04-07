@@ -23,7 +23,7 @@ Route::get('/user', 'AuthController@user');
 
 Route::group(['prefix' => 'client', 'middleware' => 'auth'], function () {
     // USERS APIS
-    Route::get('/users', 'AuthController@users');
+    Route::get('/users', 'AuthController@index');
     Route::patch('/users/{user}', 'AuthController@update');
     // RECLAMATION APIS
     Route::post('/rec', 'ReclamationController@store')->middleware('auth:api');
