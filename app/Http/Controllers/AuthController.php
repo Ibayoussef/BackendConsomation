@@ -80,7 +80,6 @@ class AuthController extends Controller
     }
     public function index()
     {
-        $users = User::orderBy('created_at', 'desc')->paginate(15);
-        return User::all($users);
+        return User::all();
     }
 }
