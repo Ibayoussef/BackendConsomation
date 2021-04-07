@@ -19,10 +19,12 @@ Route::post('/login', 'AuthController@login');
 Route::post('/logout', 'AuthController@logout');
 Route::post('/register', 'AuthController@register');
 Route::get('/user', 'AuthController@user');
-Route::patch('/user/{user}', 'AuthController@update');
 
 
 Route::group(['prefix' => 'client', 'middleware' => 'auth'], function () {
+    // USERS APIS
+    Route::get('/users', 'AuthController@users');
+    Route::patch('/users/{user}', 'AuthController@update');
     // RECLAMATION APIS
     Route::post('/rec', 'ReclamationController@store')->middleware('auth:api');
     Route::get('/rec', 'ReclamationController@index');

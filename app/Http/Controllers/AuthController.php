@@ -78,4 +78,9 @@ class AuthController extends Controller
         $user->save();
         return new UserResource($user);
     }
+    public function index()
+    {
+        $users = User::orderBy('created_at', 'desc')->paginate(15);
+        return User::collection($users);
+    }
 }
