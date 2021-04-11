@@ -14,7 +14,7 @@ class ConsomationController extends Controller
 
     public function index()
     {
-        $consos = Consomation::orderBy('created_at', 'asc');
+        $consos = Consomation::orderBy('created_at', 'asc')->paginate(12);
         return ConsoResource::collection($consos);
     }
 
